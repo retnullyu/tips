@@ -74,3 +74,4 @@ HEAD^上个版本
 
 .git:git的版本库
 
+![image-20200227202647230](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200227202647230.png)
