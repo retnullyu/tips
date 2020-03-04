@@ -1449,3 +1449,29 @@ header('content-disposition:attachment;filename=file.jpg');
 
 ***目录操纵***
 
+#### session
+
+* ***cookie***
+
+  * ```php
+    /* setcookie('age',1);
+    setcookie('name','luo'); */
+    // 查看cookie
+    var_dump($_COOKIE);
+    // 7天后过期
+    setcookie('tet','test',time()+7*24*60*60);
+    //清空内容
+    setcookie('1','');
+    ```
+
+  * 
+
+* ***session***
+
+  * 原理图
+
+  ![image-20200227203841219](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200227203841219.png)
+
+  * session的基本使用
+    * 任何时候使用session都需要开启
+    * 
