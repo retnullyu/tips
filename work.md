@@ -31,3 +31,19 @@ UL取反
 ![image-20200303142512959](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200303142512959.png)
 
 ![image-20200303143304493](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200303143304493.png)
+
+***
+
+右边的最左边是终结符
+
+![image-20200306161907167](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200306161907167.png)
+
+![image-20200306162715070](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200306162715070.png)
+
+![image-20200306163341486](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200306163341486.png)
+
+![image-20200310150025401](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200310150025401.png)
+
+![image-20200310152449266](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200310152449266.png)
+
+![image-20200310152628981](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200310152628981.png)
