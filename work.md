@@ -47,3 +47,56 @@ UL取反
 ![image-20200310152449266](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200310152449266.png)
 
 ![image-20200310152628981](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200310152628981.png)
+
+![image-20200314155655775](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200314155655775.png)
+
+![image-20200314155939021](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200314155939021.png)
+
+可归前缀是以句柄结尾的前缀
+
+![image-20200317150521802](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200317150521802.png)
+
+移入项目：点后面是终结符
+
+归约项目：点后没有东西
+
+待约项目：点后是非终结符
+
+LR（0）：要么移入要么规约 无需考虑后继 归约时候不需要考虑了follow集合直接全部填r
+
+构建自动机步骤：
+
+1. 引入开始符 得到增广文法
+2. 编号
+3. 构建自动机 表or图 状态数少用图 状态多用表
+
+![image-20200321164901428](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321164901428.png)
+
+
+
+​				4.分析表
+
+​       例子：
+![image-20200321165715714](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321165715714.png)
+
+![image-20200321165735254](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321165735254.png)
+
+![image-20200321165804537](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321165804537.png)
+
+***SLR(自动机)***
+
+1. 变为增广文法
+
+2. 编号 求FOLLOW集合
+
+3. 图
+
+   
+
+![image-20200321170838589](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321170838589.png)
+
+![image-20200321170858619](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321170858619.png)
+
+![image-20200321171107480](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321171107480.png)
+
+![image-20200321171118629](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321171118629.png)

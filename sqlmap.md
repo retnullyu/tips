@@ -44,3 +44,17 @@
 
 #### bind sql
 
+### sql注入：
+
+1. ***infromation_schema.columns***:
+   1. table_schema 数据库名
+   2. table_name 表名
+   3. column_name 列名
+2. ***information_schema.tables***
+   1. table_schema 数据库名
+   2. table_name 表名
+3. information_shcema.schemata
+   1. schema_name 数据库名
+
+
+
