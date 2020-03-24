@@ -100,3 +100,15 @@ LR（0）：要么移入要么规约 无需考虑后继 归约时候不需要考
 ![image-20200321171107480](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321171107480.png)
 
 ![image-20200321171118629](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200321171118629.png)
+
+有直接左递归的不是ll1自动机
+
+![image-20200324142930051](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200324142930051.png)
+
+![image-20200324144217519](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200324144217519.png)
+
+![image-20200324150647735](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200324150647735.png)
+
+移入规约冲突（合并同心集不会出现）
+
+![image-20200324150755096](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200324150755096.png)
