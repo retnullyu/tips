@@ -77,3 +77,8 @@ data:text/html;base64,base64编码的HTML代码
 `数据类型:属性名长度:属性名;数据类型:属性值长度:属性值`
 
 **属性名上的区别在构造POC时十分关键!**
+
+### SSTI模板注入：
+
+https://www.jianshu.com/p/aef2ae0498df
+
