@@ -112,3 +112,8 @@ LR（0）：要么移入要么规约 无需考虑后继 归约时候不需要考
 移入规约冲突（合并同心集不会出现）
 
 ![image-20200324150755096](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20200324150755096.png)
+
+![image-20200404141150019](work.assets/image-20200404141150019.png)
+
+第一次进是继承属性 第二次是综合属性
+
