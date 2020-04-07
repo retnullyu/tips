@@ -73,7 +73,26 @@ list.pop(i)
 
 ```
 
+==高效创建元素==
 
+```pyton
+print([i for i in range(1,11,2)])//1,3,5..
+```
+
+#### 切片
+
+```pyton
+//取前三个元素
+list[0:3]//从0开始到3 不包括3
+//索引是0可以省略
+list[:3]
+//从倒数第二个开始取
+list[-2:]//倒数第一个是-1
+//取前10个数 美两个取一个
+List[:10:2]
+```
+
+> tuble和字符串都可以切片操作
 
 ### tuple
 
@@ -235,5 +254,144 @@ name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'}
 >> extra = {'city': 'Beijing', 'job': 'Engineer'}
 >>> person('Jack', 24, **extra)
 name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'}
+```
+
+### 递归函数
+
+#### 尾递归
+
+> 函数返回时候调用自己,并且***return语句不能有表达式***
+>
+> 
+
+### 迭代
+
+### 字典迭代
+
+```python
+//默认迭代key
+for i in dict:
+//迭代value
+for i in d.values():
+//迭代key和value
+for i,j in d.items():
+```
+
+### 列表生成式子
+
+> 可以加if 多层循环 
+
+`[s.lower() for s in L]`
+
+`[x for x in range(1, 11) if x % 2 == 0]`
+
+```pyton
+[x if x % 2 == 0 else -x for x in range(1, 11)]
+
+L = ['Hello', 'World', 18, 'Apple', None]
+L2 = [x.lower() if isinstance(x,str) else x for x in L]
+print(L2)
+```
+
+### 生成器
+
+==列表生成式构建生成器==
+
+```python
+g = (i for i in range(1,10))
+for i in range(1,10):
+    if (i==9):
+        break
+    else:
+        print(next(g))
+for n in g:
+    print(n)
+```
+
+==关键词构建yield==
+
+> 如果一个函数定义中包含`yield`关键字，那么这个函数就不再是一个普通函数，而是一个generator：
+>
+> ，在执行过程中，遇到`yield`就中断，下次又继续执行
+>
+> 
+
+```python
+# 构建杨辉三角
+def fun(n):
+    s=[1]
+    m=0
+    while m<n:
+        yield s
+        s=[1]+[s[i]+s[i+1] for i in range(len(s)-1)]+[1]
+        m+=1
+
+test = fun(10)
+for i in test:
+    print(i)
+```
+
+==判断是否是可迭代对象==
+
+`isinstance([], Iterable)`
+
+### 迭代器
+
+>可以被`next()`函数调用并不断返回下一个值的对象称为迭代器：`Iterator`。
+>
+>`Iterator`对象表示的是一个数据流这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过`next()`函数实现按需计算下一个数据，所以`Iterator`的计算是惰性的，只有在需要返回下一个数据时它才会计算。
+
+==***判断是否是迭代器***==
+
+` isinstance(iter([]), Iterator)`
+
+___
+
+### 高阶函数
+
+>既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数
+
+#### map函数
+
+> `map()`传入的第一个参数是`f`，即函数对象本身。由于结果`r`是一个`Iterator`，`Iterator`是惰性序列
+>
+> ***list()转化为list***
+
+`list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))`
+
+```python
+#map实现名字开头大写
+l = ['adam', 'LISA', 'barT']
+def f(x):
+    return(x[1].upper()+x[1:].lower())
+print(list(map(f,l)))
+```
+
+
+
+#### reduce
+
+> `reduce`把一个函数作用在一个序列`[x1, x2, x3, ...]`上，这个函数必须接收两个参数，`reduce`把结果继续和序列的下一个元素做累积计算，其效果就是：
+>
+> ```pyton
+> reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+> ```
+>
+> 
+
+```python
+
+# 累乘
+from functools import reduce
+def f(x,y):
+    return(x*y)
+def prod(l):
+    return(reduce(f,l))
+
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+if prod([3, 5, 7, 9]) == 945:
+    print('测试成功!')
+else:
+    print('测试失败!')
 ```
 
