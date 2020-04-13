@@ -395,3 +395,236 @@ else:
     print('测试失败!')
 ```
 
+### 匿名函数：
+
+> 关键字`lambda`表示匿名函数，冒号前面的`x`表示函数参数。
+>
+> 匿名函数有个限制，就是只能有一个表达式，不用写`return`，返回值就是该表达式的结果
+
+### 装饰器
+
+> 假设我们要增强函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator
+
+```python
+from functools import wraps
+ 
+def logit(logfile='out.log'):
+    def logging_decorator(func):
+        @wraps(func)#保持调用装饰器的基本性质不变
+        def wrapped_function(*args, **kwargs):
+            log_string = func.__name__ + " was called"
+            print(log_string)
+            # 打开logfile，并写入内容
+            with open(logfile, 'a') as opened_file:
+                # 现在将日志打到指定的logfile
+                opened_file.write(log_string + '\n')
+            return func(*args, **kwargs)
+        return wrapped_function
+    return logging_decorator #函数返回的不是值而是一个类似指针的地址
+ 
+@logit()
+def myfunc1():
+    pass
+ 
+myfunc1()
+# Output: myfunc1 was called
+# 现在一个叫做 out.log 的文件出现了，里面的内容就是上面的字符串
+ 
+@logit(logfile='func2.log')
+def myfunc2():
+    pass
+ 
+myfunc2()
+# Output: myfunc2 was called
+# 现在一个叫做 func2.log 的文件出现了，里面的内容就是上面的字符串
+
+```
+
+### 面向对象
+
+---
+
+#### 类和实例
+
+==__init__函数==
+
+> ```
+> __init__`方法的第一个参数永远是`self`，表示创建的实例本身，因此，在`__init__`方法内部，就可以把各种属性绑定到`self
+> ```
+
+#### 访问限制
+
+> 实例的变量名如果以`__`开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问
+>
+> 外部代码来说，没什么变动，但是已经无法从外部访问`实例变量.__name`和`实例变量.__score`了：
+
+> 变量名类似`__xxx__`的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量  ==实例不能访问私有变量和私有方法==
+
+> 以一个下划线开头的实例变量名，比如`_name`，这样允许外部访问 但是不推荐
+
+#### 继承&多态
+
+> 子类可以继承父类的全部功能
+
+==子类的方法重新定义后可以覆盖同名的父类方法==
+
+> 在继承中一个实例的数据类型可以是继承的子类 也阔以是父类 反之则不然
+
+==当基类在另一模块中时==
+
+```python
+class DerivedClassName(modname.BaseClassName):
+    
+  #!/usr/bin/python3
+ 
+#类定义
+class people:
+    #定义基本属性
+    name = ''
+    age = 0
+    #定义私有属性,私有属性在类外部无法直接进行访问
+    __weight = 0
+    #定义构造方法
+    def __init__(self,n,a,w):
+        self.name = n
+        self.age = a
+        self.__weight = w
+    def speak(self):
+        print("%s 说: 我 %d 岁。" %(self.name,self.age))
+ 
+#单继承示例
+class student(people):
+    grade = ''
+    def __init__(self,n,a,w,g):
+        #调用父类的构函
+        people.__init__(self,n,a,w)
+        self.grade = g
+    #覆写父类的方法
+    def speak(self):
+        print("%s 说: 我 %d 岁了，我在读 %d 年级"%(self.name,self.age,self.grade))
+ 
+ 
+ 
+s = student('ken',10,60,3)
+s.speak()  
+    
+
+
+```
+
+#### 多继承
+
+==寻找方法==
+
+> 当使用的方法在子类中没有找到  则从基类从左往右找
+
+
+
+#### 类变量
+
+> 类变量可以在实例中共享 也阔以直接通过`class.namw`来访问
+
+#### 方法重写
+
+##### super（）函数
+
+```python
+class A:
+     def add(self, x):
+         y = x+1
+         print(y)
+class B(A):
+    def add(self, x):
+        super().add(x)
+b = B()
+b.add(2)  # 3
+```
+
+==重写了子类的`__init--`方法 则要调用父类`__init__`方法时：==
+
+`父类名称.__init__(self,参数1，参数2，...)`
+
+```python
+#多重继承
+class sample(speaker,student):
+    a =''
+    def __init__(self,n,a,w,g,t):
+        student.__init__(self,n,a,w,g)
+        speaker.__init__(self,n,t)
+```
+
+### 命名空间和作用域、
+
+#### global
+
+> 当作用域更小的变量要修改同时修改外部时候使用
+>
+> ```python
+> num = 1
+> def fun1():
+>     global num  # 需要使用 global 关键字声明
+>     print(num) 
+>     num = 123
+>     print(num)
+> fun1()
+> print(num)
+> ```
+>
+> 
+
+#### nonlocal
+
+> 函数B嵌套了A 在A内想改相同变量时候使用
+
+### 输入输出
+
+> str():函数返回一个用户易读的表达式
+>
+> repr():产生一个解释器易读的表达形式。
+
+![image-20200408142926931](python.assets/image-20200408142926931.png)
+
+==输出不换行==
+
+```python
+for i in range(1,10):
+    print(i,end=" ") //end 关键字
+    print(i+1)
+    
+    
+    
+ for x in range(1, 11):
+...     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x)) #d表示宽度 数字表示占位
+```
+
+### 读写文件
+
+> ```python
+> open(filename, mode)
+> ```
+>
+> 
+
+#### f.readline()
+
+> f.readline() 会从文件中读取单独的一行。换行符为 '\n'。f.readline() 如果返回一个空字符串, 说明已经已经读取到最后一行。
+
+#### f.readlines()
+
+> f.readlines() 将返回该文件中包含的所有行。
+>
+> 如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割。
+
+==迭代读取文件的每一行==
+
+```python
+# 打开一个文件
+f = open("/tmp/foo.txt", "r")
+
+for line in f:
+    print(line, end='')
+
+# 关闭打开的文件
+f.close()
+```
+
